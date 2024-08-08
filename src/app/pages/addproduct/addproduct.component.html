@@ -1,39 +1,41 @@
-<h3>Yeni Ürün Ekle - Reactive</h3>
-<form [formGroup]="productAddForm" (ngSubmit)="add()">
-    <div class="form-group mb-2">
-        <input type="text" id="name" name="name" formControlName="name" class="form-control mb-1"
-            placeholder="Ürün Adı" />
-        <div class="alert alert-danger"
-            *ngIf="productAddForm.get('name')?.hasError('required') && productAddForm.get('name')?.dirty">Ürün Adı alanı
-            boş bırakılamaz </div>
-    </div>
-    <div class="form-group mb-2">
-        <input type="text" id="description" name="description" formControlName="description" class="form-control mb-1"
-            placeholder="Açıklama" />
-        <div class="alert alert-danger"
-            *ngIf="productAddForm.get('description')?.hasError('required') && productAddForm.get('description')?.dirty">
-            Açıklama alanı boş bırakılamaz </div>
-    </div>
-    <div class="form-group mb-2">
-        <input type="text" id="imageUrl" name="imageUrl" formControlName="imageUrl" class="form-control mb-1"
-            placeholder="Ürün Resim URL" />
-        <div class="alert alert-danger"
-            *ngIf="productAddForm.get('imageUrl')?.hasError('required') && productAddForm.get('imageUrl')?.dirty">Ürün
-            Resim URL alanı boş bırakılamaz </div>
-    </div>
-    <div class="form-group mb-2">
-        <input type="number" id="price" name="price" formControlName="price" class="form-control mb-1"
-            placeholder="Ürün Fiyatı" />
-        <div class="alert alert-danger"
-            *ngIf="productAddForm.get('price')?.hasError('required') && productAddForm.get('price')?.dirty">Ürün Fiyatı
-            alanı boş bırakılamaz </div>
-    </div>
-    <div class="form-group mb-2">
-        <select class="form-control mb-1" formControlName="categoryId" id="categoryId" name="categoryId">
-            <option selected value="0">--- Kategori Seçiniz ---</option>
-            <option *ngFor="let category of categories"  value="category.id">{{category.name}}</option>
-        </select>
-    </div>
-
-    <button type="submit" class="btn btn-primary" [disabled]="productAddForm.invalid">Ürünü Ekle</button>
-</form>
+<div class="add-product-div">
+    <h3>Yeni Ürün Ekle - Reactive</h3>
+    <form [formGroup]="productAddForm" (ngSubmit)="add()">
+        <div class="form-group mb-2">
+            <input type="text" id="name" name="name" formControlName="name" class="form-control mb-1"
+                placeholder="Ürün Adı" />
+            <div class="alert alert-danger"
+                *ngIf="productAddForm.get('name')?.hasError('required') && productAddForm.get('name')?.dirty">Ürün Adı alanı
+                boş bırakılamaz </div>
+        </div>
+        <div class="form-group mb-2">
+            <input type="text" id="description" name="description" formControlName="description" class="form-control mb-1"
+                placeholder="Açıklama" />
+            <div class="alert alert-danger"
+                *ngIf="productAddForm.get('description')?.hasError('required') && productAddForm.get('description')?.dirty">
+                Açıklama alanı boş bırakılamaz </div>
+        </div>
+        <div class="form-group mb-2">
+            <input type="text" id="imageUrl" name="imageUrl" formControlName="imageUrl" class="form-control mb-1"
+                placeholder="Ürün Resim URL" />
+            <div class="alert alert-danger"
+                *ngIf="productAddForm.get('imageUrl')?.hasError('required') && productAddForm.get('imageUrl')?.dirty">Ürün
+                Resim URL alanı boş bırakılamaz </div>
+        </div>
+        <div class="form-group mb-2">
+            <input type="number" id="price" name="price" formControlName="price" class="form-control mb-1"
+                placeholder="Ürün Fiyatı" />
+            <div class="alert alert-danger"
+                *ngIf="productAddForm.get('price')?.hasError('required') && productAddForm.get('price')?.dirty">Ürün Fiyatı
+                alanı boş bırakılamaz </div>
+        </div>
+        <div class="form-group mb-2">
+            <select class="form-control mb-1" formControlName="categoryId" id="categoryId" name="categoryId">
+                <option selected value="0">--- Kategori Seçiniz ---</option>
+                <option *ngFor="let category of categories"  value="category.id">{{category.name}}</option>
+            </select>
+        </div>
+    
+        <button type="submit" class="btn btn-primary" [disabled]="productAddForm.invalid">Ürünü Ekle</button>
+    </form>
+</div>

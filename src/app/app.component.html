@@ -1,5 +1,4 @@
 <body>
-
   <header class="navbar navbar-light sticky-top bg-light flex-md-nowrap p-0 shadow">
     <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6"  [routerLink]="[ '/products' ]">E-Ticaret App</a>
     <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse"
@@ -7,14 +6,18 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div *ngIf="isLoggedIn()" class="navbar-nav">
-      <ul class="nav justify-content-end">
-        <li class="nav-item">
-          <img src="default-profile.png" class="card-img-top" alt="profile" width="32px" height="32px"/>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" (click)="logOut()">
-            Log Out
-          </a>
+      <ul class="nav nav-pills justify-content-end">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false">{{ fullname }}</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Profilim</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Sepetim</a></li>
+            <li><a class="dropdown-item" href="#">Siparişlerim</a></li>
+            <li><a class="dropdown-item" href="#">Adreslerim</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li class="nav-item"><a class="nav-link" (click)="logOut()">Log Out</a></li>
+          </ul>
         </li>
       </ul>
     </div>

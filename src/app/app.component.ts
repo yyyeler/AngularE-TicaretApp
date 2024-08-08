@@ -16,9 +16,14 @@ import { AccountService } from './services/account/account.service';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'E-Ticaret App';
+  protected title = 'E-Ticaret App';
+  protected fullname = ""; 
 
   constructor(private accountService : AccountService, private router : Router) {}
+
+  ngOnInit(): void {
+   this.fullname = localStorage.getItem("fullname")!;
+  }
 
   isLoggedIn() {
     return this.accountService.isLoggedIn();

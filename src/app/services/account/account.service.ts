@@ -19,14 +19,14 @@ export class AccountService {
 
   login(user : User) : boolean 
   {
-
-    
-
     this.userList.forEach(x => {
       if(x.username === user.username && x.password === user.password)
       {
         this.loggedIn = true;
+        let fullname = x.name+" "+x.surname;
+        console.log(fullname);
         localStorage.setItem("isLogged",user.username!);
+        localStorage.setItem("fullname",fullname!);
       } 
     })
 
