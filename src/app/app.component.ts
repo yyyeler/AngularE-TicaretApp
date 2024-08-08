@@ -6,6 +6,7 @@ import { CategoryComponent } from './category/category.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { AccountService } from './services/account/account.service';
 
 @Component({
   selector: 'app-root',
@@ -16,4 +17,14 @@ import { CommonModule } from '@angular/common';
 })
 export class AppComponent {
   title = 'shop';
+  constructor(private accountService : AccountService){}
+
+  isLoggedIn() {
+    return this.accountService.isLoggedIn();
+  }
+
+  logOut()
+  {
+    this.accountService.logOut();
+  }
 }

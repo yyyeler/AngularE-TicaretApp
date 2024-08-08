@@ -7,12 +7,15 @@ import { User } from '../../login/user';
 export class AccountService {
 
   constructor() { }
-  loggedIn = false;
+  private loggedIn = false;
 
   login(user : User) : boolean 
   {
-    this.loggedIn = (user.userName === "yyyeler" && user.password === "1111") ? true : false;
-    localStorage.setItem("isLogged",user.userName!);
+    this.loggedIn = (user.username === "yyyeler" && user.password === "1111") ? true : false;
+    localStorage.setItem("isLogged",user.username!);
+
+    
+    console.log( "loginStatus : " + this.loggedIn)
   
     return this.loggedIn;
   }
@@ -25,5 +28,6 @@ export class AccountService {
   {
     localStorage.removeItem("isLogged");
     this.loggedIn = false;
+    console.log( "loginStatus : " + this.loggedIn)
   }
 }
