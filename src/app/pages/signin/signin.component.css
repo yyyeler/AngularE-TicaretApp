@@ -1,0 +1,38 @@
+.form-signin {
+  width: 420px;
+  max-width: 330px;
+  padding: 15px;
+  margin: auto;
+  margin-top: 5rem;
+}
+
+.form-signin .checkbox {
+  font-weight: 400;
+}
+
+.form-signin .form-floating:focus-within {
+  z-index: 2;
+}
+
+.form-signin input, .form-signin select {
+  margin-bottom: 0.5rem;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+
+}
+
+.login-message-box
+{
+  margin-bottom: 0.5rem;
+}
+
+.login-submit-button
+{
+  margin-top: 1.5rem;
+}
+
+.signin-submit-button
+{
+  margin-top: 0.5rem;
+  font-size: 1.1rem;
+}

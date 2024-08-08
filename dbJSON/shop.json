@@ -1,4 +1,39 @@
 {
+  "allcounts": [
+    {
+      "id": "1",
+      "count": 2
+    },
+    {
+      "id": "2",
+      "count": 9
+    },
+    {
+      "id": "3",
+      "count": 5
+    }
+  ],
+  "users": [
+    {
+      "id": "1",
+      "username": "yyyeler",
+      "password": "1111",
+      "name": "Yusufhan",
+      "surname": "Yeler",
+      "birthDate": "1995-05-24",
+      "gender": "E"
+    },
+    {
+      "id": 2,
+      "username": "yunusyeler",
+      "password": "1111",
+      "verifyPassword": "1111",
+      "name": "Yunus",
+      "surname": "Yeler",
+      "gender": "E",
+      "birthDate": "1995-09-24"
+    }
+  ],
   "products": [
     {
       "id": "1",
@@ -57,7 +92,7 @@
       "imageUrl": "https://images.unsplash.com/photo-1636298813354-00d8200924a2?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
     },
     {
-      "id": "ff94",
+      "id": "8",
       "name": "Kablolu Kulaklık",
       "price": 500,
       "categoryId": "category.id",
@@ -65,7 +100,7 @@
       "imageUrl": "https://images.unsplash.com/photo-1583360173899-b3124bc238d9?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
     },
     {
-      "id": "8553",
+      "id": "9",
       "name": "Samsung Kablosuz Klavye",
       "description": "Klavye",
       "price": 70,

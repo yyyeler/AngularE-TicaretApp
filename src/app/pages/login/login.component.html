@@ -1,6 +1,6 @@
 <form class="form-signin" #loginForm="ngForm" (ngSubmit)="login(loginForm)">
   <div class="text-center mb-4">
-    <h1 class="h3 mb-3 fw-normal text-center">Login</h1>
+    <h1 class="h1 mb-3 fw-normal text-center">Sisteme Giriş</h1>
   </div>
   <div class="form-floating">
     <input type="text" class="form-control" #username="ngModel" [(ngModel)]="model.username" id="username" name="username"
@@ -12,5 +12,12 @@
       placeholder="Şifre" required>
     <label for="floatingPassword">Şifre</label>
   </div>
-  <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
+  <div *ngIf="errStatus" class="alert alert-danger login-message-box">
+    Kullanıcı Adı veya Şifre Hatalı
+  </div>
+
+  <button class="w-100 btn btn-lg btn-primary login-submit-button" type="submit">Giriş</button>
+  <div class="signin-submit-button text-center" >
+    <a [routerLink]="['/signin']">Kaydol</a>
+  </div>
 </form>

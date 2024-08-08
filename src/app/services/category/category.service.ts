@@ -3,7 +3,7 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { tap , catchError } from 'rxjs/operators';
-import { Category } from '../../category/category';
+import { Category } from '../../data/category';
 
 @Injectable()
 export class CategoryService {

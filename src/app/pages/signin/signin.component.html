@@ -1,0 +1,51 @@
+<form class="form-signin" #signinForm="ngForm" (ngSubmit)="signin(signinForm)">
+    <div class="text-center mb-4">
+      <h1 class="h1 mb-3 fw-normal text-center">Sisteme Kaydol</h1>
+    </div>
+    <div class="form-floating">
+      <input type="text" class="form-control" #name="ngModel" [(ngModel)]="model.name" id="name" name="name"
+        placeholder="Ad" required>
+      <label for="name">Ad</label>
+    </div>
+    <div class="form-floating">
+        <input type="text" class="form-control" #surname="ngModel" [(ngModel)]="model.surname" id="surname" name="surname"
+            placeholder="Kullanıcı Adı" required>
+        <label for="surname">Soyad</label>
+    </div>
+    <div class="form-floating">
+        <input type="date" class="form-control" #birthDate="ngModel" [(ngModel)]="model.birthDate" id="birthDate" name="birthDate"
+            placeholder="Doğum Tarihi" required>
+        <label for="birthDate">Doğum Tarihi</label>
+    </div>
+    <div class="form-floating">
+        <select class="form-control" [(ngModel)]="model.gender" #gender="ngModel" id="gender" name="gender">
+            <option value="E">Erkek</option>
+            <option value="K">Kadın</option>
+        </select>
+        <label for="verifyPassword">Cinsiyet</label>
+    </div>
+    <div class="form-floating">
+        <input type="text" class="form-control" #username="ngModel" [(ngModel)]="model.username" id="username" name="username"
+            placeholder="Kullanıcı Adı" required>
+        <label for="username">Kullanıcı Adı</label>
+    </div>
+    <div class="form-floating">
+        <input type="password" class="form-control" #password="ngModel" [(ngModel)]="model.password" id="password" name="password"
+            placeholder="Şifre" required>
+        <label for="floatingPassword">Şifre</label>
+    </div>
+    <div class="form-floating">
+        <input type="password" class="form-control" #verifyPassword="ngModel" [(ngModel)]="model.verifyPassword" id="verifyPassword" name="verifyPassword"
+            placeholder="Şifreyi Doğrula" required>
+        <label for="verifyPassword">Şifreyi Doğrula</label>
+    </div>
+
+    <div *ngIf="message.value" class="alert alert-{{message.class}} login-message-box">
+        {{ message.value }}
+    </div>
+  
+    <button class="w-100 btn btn-lg btn-primary login-submit-button" type="submit">Kaydol</button>
+    <div class="signin-submit-button text-center" >
+      <a [routerLink]="['/login']" aria-disabled="model.password != model.verifyPassword" >Giriş Yap</a>
+    </div>
+  </form>

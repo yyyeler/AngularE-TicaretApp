@@ -1,10 +1,10 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit, inject } from '@angular/core';
-import { Product } from './product';
-import { ProductFilterPipe } from "./pipes/product-filter.pipe";
+import { Product } from '../../data/product';
+import { ProductFilterPipe } from "../../pipes/product-filter.pipe";
 import { FormsModule } from '@angular/forms';
-import { AlertifyService } from '../services/alertify/alertify.service';
-import { ProductService } from '../services/product/product.service';
+import { AlertifyService } from '../../services/alertify/alertify.service';
+import { ProductService } from '../../services/product/product.service';
 import { ActivatedRoute } from '@angular/router';
 import { CategoryComponent } from "../category/category.component";
 

@@ -1,15 +1,15 @@
 import { Routes } from '@angular/router';
-import { ProductComponent } from './product/product.component';
-import { ProductAdd1Component } from './product/product-add-1/product-add-1.component';
-import { ProductAdd2Component } from './product/product-add-2/product-add-2.component';
-import { LoginComponent } from './login/login.component';
-import { LoginGuard } from './login/login.guard';
+import { ProductComponent } from './pages/product/product.component';
+import { AddProductComponent } from './pages/addproduct/addproduct';
+import { LoginComponent } from './pages/login/login.component';
+import { LoginGuard } from './pages/login/login.guard';
+import { SigninComponent } from './pages/signin/signin.component';
 
 export const routes: Routes = [
-    {path:'products',component: ProductComponent},
-    {path:'products-add-1',component: ProductAdd1Component, canActivate:[LoginGuard]},
-    {path:'products-add-2',component: ProductAdd2Component},
+    {path:'products',component: ProductComponent, canActivate:[LoginGuard]},
+    {path:'products-add-2',component: AddProductComponent, canActivate:[LoginGuard]},
     {path:'',redirectTo : 'products',pathMatch:'full'},
-    {path:'products/category/:categoryId', component: ProductComponent},
+    {path:'products/category/:categoryId', component: ProductComponent, canActivate:[LoginGuard]},
     {path:'login',component: LoginComponent},
+    {path:'signin',component: SigninComponent},
 ];

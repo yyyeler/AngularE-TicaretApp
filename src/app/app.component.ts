@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { RouterLink, RouterOutlet } from '@angular/router';
-import { ProductComponent } from "./product/product.component";
-import { NavComponent } from "./nav/nav.component";
-import { CategoryComponent } from './category/category.component';
+import { Router, RouterLink, RouterOutlet } from '@angular/router';
+import { ProductComponent } from "./pages/product/product.component";
+import { NavComponent } from "./pages/nav/nav.component";
+import { CategoryComponent } from './pages/category/category.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
@@ -16,8 +16,9 @@ import { AccountService } from './services/account/account.service';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'shop';
-  constructor(private accountService : AccountService){}
+  title = 'E-Ticaret App';
+
+  constructor(private accountService : AccountService, private router : Router) {}
 
   isLoggedIn() {
     return this.accountService.isLoggedIn();
@@ -26,5 +27,6 @@ export class AppComponent {
   logOut()
   {
     this.accountService.logOut();
+    this.router.navigateByUrl("/login");
   }
 }
