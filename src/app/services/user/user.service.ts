@@ -2,7 +2,8 @@ import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http
 import { Observable, throwError } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { tap , catchError } from 'rxjs/operators';
-import { User } from '../../data/user';
+import { Cart, User } from '../../data/user';
+import { Product } from '../../data/product';
 
 @Injectable({
   providedIn: 'root'
@@ -22,6 +23,18 @@ export class UserService {
       );
   }
 
+  getUser(id : string) : Observable<User> 
+  { 
+    
+    let realPath = this.path + "/" +id;
+    return this.http
+      .get<User>(realPath)
+      .pipe(
+        tap(data => console.log(JSON.stringify(data))),
+        catchError(this.handleError)
+      );
+  }
+
   addUser(user : User) : Observable<User>
   { 
     const httpOptions = {
@@ -30,7 +43,18 @@ export class UserService {
       'Authorization':'Token'
     }
     
-    return this.http.post<User>(this.path,user,httpOptions).pipe(
+    return this.http
+      .post<User>(this.path,JSON.stringify(user))
+      .pipe(
+        tap(data => console.log(JSON.stringify(data))),
+        catchError(this.handleError)
+      );
+  }
+
+  updateUsersCart(user : User ,product : Product) : Observable<User>
+  { 
+    let realPath = this.path + "/" + user.id;
+    return this.http.put<User>(realPath,user).pipe(
       tap(data => console.log(JSON.stringify(data))),
       catchError(this.handleError)
     );
@@ -49,4 +73,6 @@ export class UserService {
     }
     return  throwError(errorMessage);
   }
+
+  
 }

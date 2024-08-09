@@ -7,6 +7,8 @@ import { AlertifyService } from '../../services/alertify/alertify.service';
 import { ProductService } from '../../services/product/product.service';
 import { ActivatedRoute } from '@angular/router';
 import { CategoryComponent } from "../category/category.component";
+import { UserService } from '../../services/user/user.service';
+import { Cart, User } from '../../data/user';
 
 @Component({
   selector: 'app-product',
@@ -25,7 +27,8 @@ export class ProductComponent implements OnInit{
   constructor(
     private alertify: AlertifyService, 
     private api : ProductService,
-    private activateRoute : ActivatedRoute
+    private activateRoute : ActivatedRoute,
+    private userService : UserService
   ) { }
 
   ngOnInit(): void 
@@ -39,8 +42,23 @@ export class ProductComponent implements OnInit{
     });    
   }
 
-  addToCart(product: Product) {
-    this.alertify.success(product.name + " sepete eklendi");
+  addProductToCart(product: Product) {
+    let id = localStorage.getItem("userId");
+
+    this.userService.getUser(id!).subscribe( data => {
+      let cartProduct : Cart[] = data.cart?.filter(x => x.productId === product.id)!;
+      console.log(cartProduct);
+      
+      if(cartProduct.length == 0) 
+        data.cart!.push({ "productId" : product.id, "count" : 1 } as Cart);
+      else cartProduct[0].count! += 1;
+      
+      console.log(data);
+      this.userService.updateUsersCart(data, product).subscribe( x =>  
+        this.alertify.success(x.name + " sepete eklendi")
+      );
+      
+    });
   }
 }
 

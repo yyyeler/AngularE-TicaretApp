@@ -1,23 +1,48 @@
 <body>
   <header class="navbar navbar-light sticky-top bg-light flex-md-nowrap p-0 shadow">
-    <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6"  [routerLink]="[ '/products' ]">E-Ticaret App</a>
+    <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6"  [routerLink]="[ '/products' ]">
+      <img src="/images/logo.png" height="28">
+    </a>
     <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse"
       data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div *ngIf="isLoggedIn()" class="navbar-nav">
-      <ul class="nav nav-pills justify-content-end">
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false">{{ fullname }}</a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Profilim</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Sepetim</a></li>
-            <li><a class="dropdown-item" href="#">Siparişlerim</a></li>
-            <li><a class="dropdown-item" href="#">Adreslerim</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li class="nav-item"><a class="nav-link" (click)="logOut()">Log Out</a></li>
-          </ul>
+    <div *ngIf="isLoggedIn()" class="dropdown">
+      <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" (click)="dropdownToggle()">
+        {{ fullname }}
+        <img src="/images/default-profile.png" height="32" width="32">        
+      </button>
+      <ul class="dropdown-menu" [ngClass]="{'hide' : dropdownKey}">
+        <li>
+          <a class="dropdown-item" href="#">
+            <img src="/icons/profile.png" class="dropdown-menu-icons">
+            Profilim
+          </a>
+        </li>
+        <li><hr class="dropdown-divider"></li>
+        <li>
+          <a class="dropdown-item" href="#">
+            <img src="/icons/cart.png" class="dropdown-menu-icons">
+            Sepetim
+          </a>
+        </li>
+        <li>          
+          <a class="dropdown-item" href="#">
+            <img src="/icons/bag.png" class="dropdown-menu-icons">
+            Siparişlerim
+          </a>
+        </li>
+        <li>
+          <a class="dropdown-item" href="#">
+            <img src="/icons/address.png" class="dropdown-menu-icons">
+            Adreslerim
+          </a>
+        </li>
+        <li><hr class="dropdown-divider"></li>
+        <li>
+          <a class="dropdown-item" (click)="logOut()">
+            <img src="/icons/logout.png" class="dropdown-menu-icons">
+            Log Out</a>
         </li>
       </ul>
     </div>
@@ -38,58 +63,6 @@
               <a class="nav-link" href="#"  [routerLink]="[ '/products-add-2' ]">
                 <span data-feather="shopping-cart" class="align-text-bottom"></span>
                 Ürün Ekle
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">
-                <span data-feather="users" class="align-text-bottom"></span>
-                Customers
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">
-                <span data-feather="bar-chart-2" class="align-text-bottom"></span>
-                Reports
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">
-                <span data-feather="layers" class="align-text-bottom"></span>
-                Integrations
-              </a>
-            </li>
-          </ul>
-
-          <h6
-            class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted text-uppercase">
-            <span>Saved reports</span>
-            <a class="link-secondary" href="#" aria-label="Add a new report">
-              <span data-feather="plus-circle" class="align-text-bottom"></span>
-            </a>
-          </h6>
-          <ul class="nav flex-column mb-2">
-            <li class="nav-item">
-              <a class="nav-link" href="#">
-                <span data-feather="file-text" class="align-text-bottom"></span>
-                Current month
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">
-                <span data-feather="file-text" class="align-text-bottom"></span>
-                Last quarter
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">
-                <span data-feather="file-text" class="align-text-bottom"></span>
-                Social engagement
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">
-                <span data-feather="file-text" class="align-text-bottom"></span>
-                Year-end sale
               </a>
             </li>
           </ul>

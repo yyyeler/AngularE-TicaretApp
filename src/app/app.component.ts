@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router, RouterLink, RouterOutlet } from '@angular/router';
 import { ProductComponent } from "./pages/product/product.component";
 import { NavComponent } from "./pages/nav/nav.component";
@@ -15,9 +15,10 @@ import { AccountService } from './services/account/account.service';
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
   protected title = 'E-Ticaret App';
-  protected fullname = ""; 
+  protected fullname? : string; 
+  protected dropdownKey = false;
 
   constructor(private accountService : AccountService, private router : Router) {}
 
@@ -31,7 +32,13 @@ export class AppComponent {
 
   logOut()
   {
+    this.dropdownKey=false;
     this.accountService.logOut();
     this.router.navigateByUrl("/login");
+  }
+
+  dropdownToggle()
+  {
+    this.dropdownKey = !this.dropdownKey;
   }
 }

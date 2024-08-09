@@ -2,7 +2,7 @@
   "allcounts": [
     {
       "id": "1",
-      "count": 2
+      "count": 4
     },
     {
       "id": "2",
@@ -21,17 +21,38 @@
       "name": "Yusufhan",
       "surname": "Yeler",
       "birthDate": "1995-05-24",
-      "gender": "E"
+      "gender": "E",
+      "cart": [
+        {
+          "productId": "1",
+          "count": 2
+        },
+        {
+          "productId": "2",
+          "count": 1
+        }
+      ]
     },
     {
-      "id": 2,
+      "id": "2",
       "username": "yunusyeler",
       "password": "1111",
       "verifyPassword": "1111",
       "name": "Yunus",
       "surname": "Yeler",
       "gender": "E",
-      "birthDate": "1995-09-24"
+      "birthDate": "1995-09-24",
+      "cart": []
+    },
+    {
+      "id": 4,
+      "username": "tng",
+      "password": "1111",
+      "verifyPassword": "1111",
+      "name": "Tuğçe Nur",
+      "surname": "Yeler",
+      "gender": "K",
+      "birthDate": "1997-03-02"
     }
   ],
   "products": [

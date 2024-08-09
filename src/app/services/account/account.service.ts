@@ -23,13 +23,9 @@ export class AccountService {
       if(x.username === user.username && x.password === user.password)
       {
         this.loggedIn = true;
-        let fullname = x.name+" "+x.surname;
-        console.log(fullname);
-        localStorage.setItem("isLogged",user.username!);
-        localStorage.setItem("fullname",fullname!);
+        this.setUserInfo(x.id!,(x.name+" "+x.surname),x.username!);
       } 
     })
-
     return this.loggedIn;
   }
 
@@ -39,7 +35,21 @@ export class AccountService {
 
   logOut()
   {
-    localStorage.removeItem("isLogged");
+    this.deleteUserInfo();
     this.loggedIn = false;
+  }
+
+  setUserInfo(userid : number , fullname : string, username : string)
+  {
+    localStorage.setItem("userId",userid+""!);
+    localStorage.setItem("fullname",fullname!);
+    localStorage.setItem("isLogged",username!);
+  }
+
+  deleteUserInfo()
+  {
+    localStorage.removeItem("userId");
+    localStorage.removeItem("fullname");
+    localStorage.removeItem("isLogged");
   }
 }
