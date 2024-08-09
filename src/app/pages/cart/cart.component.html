@@ -1,0 +1,10 @@
+<div class="cart-div row">
+    <div class="col-lg-6 offset-lg-3 col-md-8 offset-md-2 text-center">
+        <h3 class="cart-title">Sepetim</h3>
+        <form [formGroup]="cartForm" (ngSubmit)="getOrder()">
+            <div *ngFor=" let product of products">
+
+            </div>
+         </form>
+    </div>
+</div>

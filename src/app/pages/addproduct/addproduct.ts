@@ -5,12 +5,11 @@ import { CommonModule } from '@angular/common';
 import { Category } from '../../data/category';
 import { CategoryService } from '../../services/category/category.service';
 import { ProductService } from '../../services/product/product.service';
-import { tap } from 'rxjs';
 import { AlertifyService } from '../../services/alertify/alertify.service';
 import { AllcountService, Count } from '../../services/allcount/allcount.service';
 
 @Component({
-  selector: 'app-product-add-2',
+  selector: 'app-addproduct',
   standalone: true,
   imports: [ReactiveFormsModule,CommonModule],
   templateUrl: './addproduct.component.html',

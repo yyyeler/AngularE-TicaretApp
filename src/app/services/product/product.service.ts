@@ -10,10 +10,10 @@ export class ProductService {
   constructor(private http : HttpClient) { }
   protected path : string = "http://localhost:3000/products";
 
-  getProducts(categoryId : string) : Observable<Product[]> 
+  getProducts(urlExtension? : string) : Observable<Product[]> 
   { 
     let realPath = this.path;
-    realPath += categoryId?"?categoryId="+categoryId:"";
+    realPath += urlExtension?urlExtension:"";
     return this.http
       .get<Product[]>(realPath)
       .pipe(

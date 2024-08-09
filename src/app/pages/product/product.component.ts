@@ -23,6 +23,7 @@ export class ProductComponent implements OnInit{
   protected title: string = "Ürün Listesi";
   protected filterText: string = "";
   protected products: Product[] = [];
+  protected urlExtension = "";
 
   constructor(
     private alertify: AlertifyService, 
@@ -35,7 +36,8 @@ export class ProductComponent implements OnInit{
   {
     this.activateRoute.params.subscribe(params => 
     {
-      this.api.getProducts(params["categoryId"]).subscribe(
+      this.urlExtension = params["categoryId"] ?"?categoryId="+params["categoryId"]:"";
+      this.api.getProducts(this.urlExtension).subscribe(
         (data) => {
           this.products = data;
         });
