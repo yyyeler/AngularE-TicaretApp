@@ -10,11 +10,11 @@
     <div *ngIf="isLoggedIn()" class="dropdown">
       <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" (click)="dropdownToggle()">
         {{ fullname }}
-        <img src="/images/default-profile.png" height="32" width="32">        
+        <img class="profile-image" src="{{ profilePhoto }}" height="32" width="32">        
       </button>
       <ul class="dropdown-menu" [ngClass]="{'hide' : dropdownKey}">
         <li>
-          <a class="dropdown-item" href="#">
+          <a class="dropdown-item" href="#" [routerLink]="[ '/profile' ]">
             <img src="/icons/profile.png" class="dropdown-menu-icons">
             Profilim
           </a>

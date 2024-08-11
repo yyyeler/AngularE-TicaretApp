@@ -104,3 +104,8 @@ body {
 }
 
 .hide { display: block; }
+
+.profile-image
+{
+  border-radius: 100%;
+}

@@ -1,0 +1,82 @@
+<div class="profile-div row">
+    <div  class="col-lg-8 offset-lg-2 col-md-10 offset-md-1 text-center">
+      <h3 class="cart-title">Profilim</h3>
+    </div>
+</div>
+<div class="profile-div row">
+    <div class="col-md-10 offset-md-1">
+        <div class="container pb-5">
+            <div class="profile-div row">
+                <div class="col-md-12 text-end">
+                    <button *ngIf="!toggleKey" class="btn btn-primary" type="button" (click)="toggleEdit()">
+                        <img src="icons/pen.ico" width="16"/> Düzenle
+                    </button>
+                </div>
+            </div>
+            <div class="profile-div row">
+                <div class="col-md-10 offset-md-1 text-center">
+                    <img src="{{ profilePhoto }}" class="profile-image"/>
+                </div>
+                <div class="col-md-10 offset-md-1 text-center">
+                   <h4>{{ "@"+user.username }}</h4>
+                </div>
+            </div>
+            
+            <form class="form-user" #userForm="ngForm" (ngSubmit)="updateUser(userForm)">
+                <div class="row">
+                    <div class="col-md-5 offset-md-1 ">
+                        <div class="form-group mb-2">
+                            <label for="name">İsim</label>
+                            <input type="text" class="form-control mb-1" #name="ngModel" [(ngModel)]="user.name" id="name" name="name"
+                                placeholder="İsim" required [disabled]="!toggleKey">
+                        </div>
+                        <div class="form-group mb-2">
+                            <label for="surname">Soyisim</label>
+                            <input type="text" class="form-control mb-1" #surname="ngModel" [(ngModel)]="user.surname" id="surname" name="surname"
+                                placeholder="Soyisim" required [disabled]="!toggleKey">
+                        </div>
+                        <div class="form-group mb-2">
+                            <label for="username">Email</label>
+                            <input type="email" class="form-control mb-1" #email="ngModel" [(ngModel)]="user.email" id="email" name="email"
+                                placeholder="Email" required [disabled]="!toggleKey">
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="form-group mb-2">
+                            <label for="birthDate">Doğum Tarihi</label>
+                            <input type="date" class="form-control mb-1" #birthDate="ngModel" [(ngModel)]="user.birthDate" id="birthDate" name="birthDate"
+                                placeholder="Doğum Tarihi" required [disabled]="!toggleKey">
+                        </div>
+                        <div class="form-group mb-2">
+                            <label for="gender">Cinsiyet</label>
+                            <select class="form-control mb-1" [(ngModel)]="user.gender" #gender="ngModel" id="gender" name="gender" [disabled]="!toggleKey">
+                                <option value="E">Erkek</option>
+                                <option value="K">Kadın</option>
+                            </select>
+                        </div>                
+                        <div class="form-group mb-2">
+                            <label for="profileImage">Ürün Resim URL</label>
+                            <input type="text" id="profileImage" name="profileImage" #profileImage="ngModel" [(ngModel)]="user.profileImage" class="form-control mb-1"
+                                placeholder="Ürün Resim URL" [disabled]="!toggleKey"/>
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf="toggleKey" class="row">
+                    <div class="col-md-10 offset-md-1 d-flex justify-content-end">
+                        <div class="profile-button">
+                            <button class="btn btn-danger" type="button" (click)="toggleEdit()">
+                                <img src="icons/cancel.ico" width="16"/> İptal
+                            </button>
+                        </div>
+                        <div class="profile-button">
+                            <button class="btn btn-primary" type="submit" (click)="updateUser(userForm)">
+                                <img src="icons/save.ico" width="16"/> Kaydet
+                            </button>   
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+

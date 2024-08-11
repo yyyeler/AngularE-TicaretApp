@@ -10,6 +10,8 @@ export class User
                 public surname?: string,
                 public gender?: string,
                 public birthDate?: Date,
+                public profileImage?: string,
+                public email?: string,
                 public cart? : Product[]
             ) {}
 }

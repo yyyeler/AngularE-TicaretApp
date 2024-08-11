@@ -7,6 +7,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { AccountService } from './services/account/account.service';
+import { UserService } from './services/user/user.service';
+import { User } from './data/user';
 
 @Component({
   selector: 'app-root',
@@ -18,12 +20,19 @@ import { AccountService } from './services/account/account.service';
 export class AppComponent implements OnInit{
   protected title = 'E-Ticaret App';
   protected fullname? : string; 
+  protected profilePhoto? : string; 
+  protected user! : User;
   protected dropdownKey = false;
 
-  constructor(private accountService : AccountService, private router : Router) {}
+  constructor(private accountService : AccountService, private userService: UserService, private router : Router) {}
 
   ngOnInit(): void {
-   this.fullname = localStorage.getItem("fullname")!;
+   this.userService.getUser(localStorage.getItem("userId")!).subscribe(data => {
+    this.user = data;
+    this.fullname = this.user.name+" "+this.user.surname;
+    this.profilePhoto = this.user.profileImage != "" ? this.user.profileImage! : 'images/default-profile-big.png';
+    console.log(this.user);
+   });
   }
 
   isLoggedIn() {

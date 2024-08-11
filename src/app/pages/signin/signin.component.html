@@ -1,6 +1,6 @@
 <form class="form-signin" #signinForm="ngForm" (ngSubmit)="signin(signinForm)">
     <div class="text-center mb-4">
-      <h1 class="h1 mb-3 fw-normal text-center">Sisteme Kaydol</h1>
+      <h1 class="h1 mb-3 fw-normal text-center">Kaydol</h1>
     </div>
     <div class="form-floating">
       <input type="text" class="form-control" #name="ngModel" [(ngModel)]="model.name" id="name" name="name"
@@ -9,8 +9,13 @@
     </div>
     <div class="form-floating">
         <input type="text" class="form-control" #surname="ngModel" [(ngModel)]="model.surname" id="surname" name="surname"
-            placeholder="Kullanıcı Adı" required>
+            placeholder="Soyad" required>
         <label for="surname">Soyad</label>
+    </div>
+    <div class="form-floating">
+        <input type="email" class="form-control" #email="ngModel" [(ngModel)]="model.email" id="email" name="email"
+            placeholder="Email" required>
+        <label for="email">Email</label>
     </div>
     <div class="form-floating">
         <input type="date" class="form-control" #birthDate="ngModel" [(ngModel)]="model.birthDate" id="birthDate" name="birthDate"

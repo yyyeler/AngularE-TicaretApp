@@ -22,6 +22,7 @@ export class CartComponent {
   protected user! : User;
   protected urlExtension = "?";
   protected totalCost = 0;
+  protected title = "Sepetim";
   protected emptyMessage = "Sepetinizde ürün bulunmamaktadır!";
   protected order : Order = new Order();
   protected count : Count = new Count();
@@ -64,7 +65,7 @@ export class CartComponent {
 
     this.allcountService.updateCount(this.count).subscribe();
     this.user.cart = [];
-    this.userService.updateUsersCart(this.user).subscribe();
+    this.userService.updateUser(this.user).subscribe();
 
     this.totalCost = 0;
   }

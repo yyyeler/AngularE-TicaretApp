@@ -14,7 +14,7 @@ import { AlertifyService } from '../../services/alertify/alertify.service';
   providers: [OrderService]
 })
 export class OrderComponent implements OnInit{
-  protected title = "Siparişler";  
+  protected title = "Siparişlerim";  
   protected emptyMessage = "Siparişiniz bulunmamaktadır.";
   protected userId! : string;
   protected orders : Order[] = [];

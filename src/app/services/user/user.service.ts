@@ -50,7 +50,7 @@ export class UserService {
       );
   }
 
-  updateUsersCart(user : User) : Observable<User>
+  updateUser(user : User) : Observable<User>
   { 
     let realPath = this.path + "/" + user.id;
     return this.http.put<User>(realPath,user).pipe(

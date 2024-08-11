@@ -56,7 +56,7 @@ export class ProductComponent implements OnInit{
       }
       else cartProduct[0].cartCount! += 1;
       
-      this.userService.updateUsersCart(data).subscribe( x =>  
+      this.userService.updateUser(data).subscribe( x =>  
         this.alertify.success(product.name + " sepete eklendi")
       );
       

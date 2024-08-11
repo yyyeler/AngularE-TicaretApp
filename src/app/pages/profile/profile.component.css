@@ -1,0 +1,25 @@
+.profile-div
+{
+    margin: 1rem 1rem;
+    padding: 1rem 1rem; ;
+
+}
+
+.profile-image
+{
+    height: 10rem;
+    aspect-ratio: 1/1;
+    border-radius: 100%;
+}
+
+.container
+{
+    border: 1px solid #cdcdcd;
+    border-radius: 1%;
+    background:#f2f2f2;
+}
+
+.profile-button
+{
+    margin-right: 0.5rem;
+}
