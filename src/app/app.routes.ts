@@ -5,6 +5,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { LoginGuard } from './pages/login/login.guard';
 import { SigninComponent } from './pages/signin/signin.component';
 import { CartComponent } from './pages/cart/cart.component';
+import { OrderComponent } from './pages/order/order.component';
 
 export const routes: Routes = [
     {path:'products',component: ProductComponent, canActivate:[LoginGuard]},
@@ -12,6 +13,7 @@ export const routes: Routes = [
     {path:'',redirectTo : 'products',pathMatch:'full'},
     {path:'products/category/:categoryId', component: ProductComponent, canActivate:[LoginGuard]},
     {path:'cart', component: CartComponent, canActivate:[LoginGuard]},
+    {path:'order', component: OrderComponent, canActivate:[LoginGuard]},
     {path:'login',component: LoginComponent},
     {path:'signin',component: SigninComponent},
 ];

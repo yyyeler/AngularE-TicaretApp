@@ -1,0 +1,68 @@
+<div *ngIf="orders!.length != 0">
+    <div class="order-div row">
+        <div *ngIf="orders!.length != 0" class="col-lg-8 offset-lg-2 col-md-10 offset-md-1 text-center">
+          <h3 class="order-title">{{ title }}</h3>
+        </div>
+    </div>
+    <div *ngFor="let order of orders" class="row">
+        <div>
+            <div class="offset-md-2 text-start">
+                {{ order!.orderTime | date }}
+            </div>
+            <div class="card col-md-8 offset-md-2 mb-2 p-3">
+                <div class="row align-items-center g-0" (click) = "openOrder(order.id!)">
+                    <div class="col-md-5 align-self-center">        
+                        <b>{{ order.products!.length }}</b> adet ürün sipariş verildi.
+                    </div>
+                    <div class="col-md-5 align-self-center">     
+                        Toplam Tutar : <b>{{ order.totalCost | currency:'EUR'}}</b>
+                    </div>
+                    <div class="col-md-2 text-end">        
+                        <button type="button" class="btn btn-danger" (click)="deleteOrder(order)">Delete</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="orderKeys[order.id!]" class="row m-0 mb-4 order-products-infos-div">
+            <div class="card col-md-8 offset-md-2 p-2 cart-products-div">
+              <div *ngFor="let product of order.products" class="row">
+                <div class="card col-md-10 offset-md-1 p-1 mb-1">
+                  <div class="row text-center align-items-center">
+                    <div class="col-md-3">
+                      <img
+                        src="{{ product!.imageUrl }}"
+                        class="card-img-center cart-product-image"
+                      />
+                    </div>
+                    <div class="col-md-6">
+                      <div class="card-body">
+                        <h5 class="card-title d-flex justify-content-start">
+                          {{ product!.name }}
+                        </h5>
+                        <p class="card-text d-flex justify-content-start">
+                          {{ product!.description }}
+                        </p>
+                      </div>
+                    </div>
+                    <div class="col-md-3">
+                      <div class="row">
+                        <h6>
+                          <b>{{ (product?.cartCount ?? 0) * (product?.price ?? 0) | currency : "EUR" }}</b>
+                        </h6>
+                      </div>
+                      <div class="row">
+                        <p class="card-text mb-2">
+                          {{ product?.cartCount ?? 0 }} * {{ product?.price ?? 0 }}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div *ngIf="orders!.length == 0" class="alert alert-danger">
+    <h4 class="text-center">{{ emptyMessage }}</h4>
+</div>

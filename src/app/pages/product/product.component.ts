@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Product } from '../../data/product';
 import { ProductFilterPipe } from "../../pipes/product-filter.pipe";
 import { FormsModule } from '@angular/forms';

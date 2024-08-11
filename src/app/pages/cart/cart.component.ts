@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormGroup } from '@angular/forms';
 import { UserService } from '../../services/user/user.service';
 import { Product } from '../../data/product';
 import { User } from '../../data/user';
@@ -12,7 +12,7 @@ import { AlertifyService } from '../../services/alertify/alertify.service';
 @Component({
   selector: 'app-cart',
   standalone: true,
-  imports: [ReactiveFormsModule,CommonModule],
+  imports: [CommonModule],
   templateUrl: './cart.component.html',
   styleUrl: './cart.component.css',
   providers:[OrderService]
@@ -22,6 +22,7 @@ export class CartComponent {
   protected user! : User;
   protected urlExtension = "?";
   protected totalCost = 0;
+  protected emptyMessage = "Sepetinizde ürün bulunmamaktadır!";
   protected order : Order = new Order();
   protected count : Count = new Count();
 
@@ -47,8 +48,11 @@ export class CartComponent {
 
   getOrder()
   {
+    this.order!.userId = this.user.id;
     this.order!.products = this.user.cart!;
     this.order!.orderTime = new Date();
+    this.order!.totalCost = this.totalCost;
+    this.order!.address = "address 1";
     
     this.count["count"]!++;    
 

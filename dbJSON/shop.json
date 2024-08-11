@@ -25,7 +25,35 @@
       "surname": "Yeler",
       "birthDate": "1995-05-24",
       "gender": "E",
-      "cart": []
+      "cart": [
+        {
+          "id": "1",
+          "name": "Laptop",
+          "price": 2500,
+          "categoryId": 1,
+          "description": "MacBook Pro",
+          "imageUrl": "https://images.unsplash.com/photo-1611186871348-b1ce696e52c9?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+          "cartCount": 1
+        },
+        {
+          "id": "2",
+          "name": "Mouse",
+          "price": 25,
+          "categoryId": 2,
+          "description": "Logitech",
+          "imageUrl": "https://images.unsplash.com/photo-1527814050087-3793815479db?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fG1vdXNlfGVufDB8MHwwfHx8MA%3D%3D",
+          "cartCount": 1
+        },
+        {
+          "id": "3",
+          "name": "Desktop",
+          "price": 3000,
+          "categoryId": 1,
+          "description": "Mac",
+          "imageUrl": "https://images.unsplash.com/photo-1517059224940-d4af9eec41b7?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fG1hYyUyMGRlc2t0b3B8ZW58MHwwfDB8fHww",
+          "cartCount": 1
+        }
+      ]
     },
     {
       "id": "2",
@@ -98,30 +126,6 @@
       "categoryId": 4,
       "description": "Airpods",
       "imageUrl": "https://images.unsplash.com/photo-1603351154351-5e2d0600bb77?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8YWlycG9kc3xlbnwwfDB8MHx8fDA%3D"
-    },
-    {
-      "id": "7",
-      "name": "Mac Mini",
-      "price": 1200,
-      "categoryId": "category.id",
-      "description": "Bilgisayar",
-      "imageUrl": "https://images.unsplash.com/photo-1636298813354-00d8200924a2?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-    },
-    {
-      "id": "8",
-      "name": "Kablolu Kulaklık",
-      "price": 500,
-      "categoryId": "category.id",
-      "description": "Beats",
-      "imageUrl": "https://images.unsplash.com/photo-1583360173899-b3124bc238d9?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-    },
-    {
-      "id": "9",
-      "name": "Samsung Kablosuz Klavye",
-      "description": "Klavye",
-      "price": 70,
-      "imageUrl": "https://plus.unsplash.com/premium_photo-1683543124615-fb42e42c6201?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      "categoryId": "category.id"
     }
   ],
   "categories": [
@@ -148,8 +152,62 @@
   ],
   "orders": [
     {
-      "id": 1,
-      "userId": 1,
+      "id": 2,
+      "userId": "1",
+      "products": [
+        {
+          "id": "3",
+          "name": "Desktop",
+          "price": 3000,
+          "categoryId": 1,
+          "description": "Mac",
+          "imageUrl": "https://images.unsplash.com/photo-1517059224940-d4af9eec41b7?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fG1hYyUyMGRlc2t0b3B8ZW58MHwwfDB8fHww",
+          "cartCount": 1
+        },
+        {
+          "id": "6",
+          "name": "Kablosuz Kulaklık",
+          "price": 400,
+          "categoryId": 4,
+          "description": "Airpods",
+          "imageUrl": "https://images.unsplash.com/photo-1603351154351-5e2d0600bb77?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8YWlycG9kc3xlbnwwfDB8MHx8fDA%3D",
+          "cartCount": 1
+        },
+        {
+          "id": "5",
+          "name": "Akıllı Saat",
+          "price": 800,
+          "categoryId": 5,
+          "description": "Apple Watch",
+          "imageUrl": "https://images.unsplash.com/photo-1461141346587-763ab02bced9?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fGFwcGxlJTIwd2F0Y2h8ZW58MHwwfDB8fHww",
+          "cartCount": 1
+        },
+        {
+          "id": "4",
+          "name": "Telefon",
+          "price": 1500,
+          "categoryId": 3,
+          "description": "Iphone 14 Pro",
+          "imageUrl": "https://images.unsplash.com/photo-1664478546384-d57ffe74a78c?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fGlwaG9uZSUyMDE0JTIwcHJvfGVufDB8MHwwfHx8MA%3D%3D",
+          "cartCount": 1
+        },
+        {
+          "id": "1",
+          "name": "Laptop",
+          "price": 2500,
+          "categoryId": 1,
+          "description": "MacBook Pro",
+          "imageUrl": "https://images.unsplash.com/photo-1611186871348-b1ce696e52c9?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+          "cartCount": 1
+        }
+      ],
+      "totalCost": 8200,
+      "address": "address 1",
+      "orderTime": "2024-08-11T10:08:41.787Z"
+    },
+    {
+      "id": 3,
+      "userId": "1",
       "products": [
         {
           "id": "1",
@@ -158,60 +216,21 @@
           "categoryId": 1,
           "description": "MacBook Pro",
           "imageUrl": "https://images.unsplash.com/photo-1611186871348-b1ce696e52c9?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-          "cartCount": 3
+          "cartCount": 1
         },
         {
-          "id": "2",
-          "name": "Mouse",
-          "price": 25,
-          "categoryId": 2,
-          "description": "Logitech",
-          "imageUrl": "https://images.unsplash.com/photo-1527814050087-3793815479db?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fG1vdXNlfGVufDB8MHwwfHx8MA%3D%3D",
-          "cartCount": 1
-        }
-      ],
-      "orderTime": "2024-08-11T00:08:06.636Z"
-    },
-    {
-      "id": 2,
-      "userId": "1",
-      "products": [
-        {
-          "id": "2",
-          "name": "Mouse",
-          "price": 25,
-          "categoryId": 2,
-          "description": "Logitech",
-          "imageUrl": "https://images.unsplash.com/photo-1527814050087-3793815479db?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fG1vdXNlfGVufDB8MHwwfHx8MA%3D%3D",
+          "id": "6",
+          "name": "Kablosuz Kulaklık",
+          "price": 400,
+          "categoryId": 4,
+          "description": "Airpods",
+          "imageUrl": "https://images.unsplash.com/photo-1603351154351-5e2d0600bb77?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8YWlycG9kc3xlbnwwfDB8MHx8fDA%3D",
           "cartCount": 2
-        },
-        {
-          "id": "5",
-          "name": "Akıllı Saat",
-          "price": 800,
-          "categoryId": 5,
-          "description": "Apple Watch",
-          "imageUrl": "https://images.unsplash.com/photo-1461141346587-763ab02bced9?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fGFwcGxlJTIwd2F0Y2h8ZW58MHwwfDB8fHww",
-          "cartCount": 3
         }
       ],
-      "orderTime": "2024-08-11T00:12:15.406Z"
-    },
-    {
-      "id": 3,
-      "userId": "1",
-      "products": [
-        {
-          "id": "5",
-          "name": "Akıllı Saat",
-          "price": 800,
-          "categoryId": 5,
-          "description": "Apple Watch",
-          "imageUrl": "https://images.unsplash.com/photo-1461141346587-763ab02bced9?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fGFwcGxlJTIwd2F0Y2h8ZW58MHwwfDB8fHww",
-          "cartCount": 1
-        }
-      ],
-      "orderTime": "2024-08-11T00:13:16.347Z"
+      "totalCost": 3300,
+      "address": "address 1",
+      "orderTime": "2024-08-11T10:18:05.417Z"
     }
   ]
 }

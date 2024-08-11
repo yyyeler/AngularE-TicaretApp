@@ -6,7 +6,6 @@ import { Order } from '../data/order';
 
 @Injectable()
 export class OrderService {
-
   constructor(private http : HttpClient) { }
   protected path : string = "http://localhost:3000/orders";
 
@@ -34,6 +33,17 @@ export class OrderService {
       tap(data => console.log(JSON.stringify(data))),
       catchError(this.handleError)
     );
+  }
+
+  deleteOrder(id: number) {
+    let realPath = this.path;
+    realPath += "/"+id;
+    return this.http
+      .delete<Order[]>(realPath)
+      .pipe(
+        tap(data => console.log(JSON.stringify(data))),
+        catchError(this.handleError)
+      );
   }
 
   protected handleError(err: HttpErrorResponse) 
