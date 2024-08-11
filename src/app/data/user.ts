@@ -1,3 +1,5 @@
+import { Product } from "./product";
+
 export class User
 {
     constructor(public id?: number,
@@ -8,12 +10,6 @@ export class User
                 public surname?: string,
                 public gender?: string,
                 public birthDate?: Date,
-                public cart? : Cart[]
+                public cart? : Product[]
             ) {}
-}
-
-export class Cart
-{
-    public productId? : number;
-    public count? : number;
 }

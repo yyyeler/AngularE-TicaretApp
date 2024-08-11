@@ -1,12 +1,13 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { ProductService } from '../../services/product/product.service';
-import { CategoryService } from '../../services/category/category.service';
-import { Product } from '../../data/product';
-import { AlertifyService } from '../../services/alertify/alertify.service';
+import { FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { UserService } from '../../services/user/user.service';
-import { Cart } from '../../data/user';
+import { Product } from '../../data/product';
+import { User } from '../../data/user';
+import { Order } from '../../data/order';
+import { AllcountService, Count } from '../../services/allcount/allcount.service';
+import { OrderService } from '../../services/order.service';
+import { AlertifyService } from '../../services/alertify/alertify.service';
 
 @Component({
   selector: 'app-cart',
@@ -14,45 +15,75 @@ import { Cart } from '../../data/user';
   imports: [ReactiveFormsModule,CommonModule],
   templateUrl: './cart.component.html',
   styleUrl: './cart.component.css',
-  providers:[CategoryService, ProductService]
+  providers:[OrderService]
 })
 export class CartComponent {
   protected cartForm! : FormGroup;
-  protected products : Product[] = [];
-  protected cart : Cart[] = [];
+  protected user! : User;
   protected urlExtension = "?";
+  protected totalCost = 0;
+  protected order : Order = new Order();
+  protected count : Count = new Count();
 
-  constructor(private formBuilder : FormBuilder,
-              private productService : ProductService, 
-              private userService : UserService,
+  constructor(private userService : UserService, 
+              private allcountService : AllcountService, 
+              private orderService : OrderService,
               private alertifyService : AlertifyService) { }
 
   ngOnInit(): void 
   {
     this.userService.getUser(localStorage.getItem("userId")!).subscribe(
       data => {
-        this.cart = data.cart!;
-        console.log(this.cart);
+        this.user = data!;
+        this.user.cart!.forEach(data => this.totalCost += (data.price!*data.cartCount!));
+        this.order!.userId = this.user.id;
+    });
 
-        this.cart.forEach( prod => {
-          this.urlExtension += "id="+prod.productId+"&";
-        });
-
-        this.urlExtension.substring(0,-1);
-
-        console.log(this.urlExtension);
-        this.productService.getProducts(this.urlExtension).subscribe(
-          data => console.log(data)
-        );
-      });
-
-    
-    
-    
+    this.allcountService.getCount(4).subscribe(data => {
+      this.count = data;
+      this.order!.id = this.count["count"]! + 1;
+    });
   }
 
   getOrder()
   {
-    console.log("getOrder");
+    this.order!.products = this.user.cart!;
+    this.order!.orderTime = new Date();
+    
+    this.count["count"]!++;    
+
+    this.orderService.addOrder(this.order!).subscribe(
+      data => {
+        this.alertifyService.success("Siparişiniz başarıyla verildi.")
+      }
+    );
+
+    this.allcountService.updateCount(this.count).subscribe();
+    this.user.cart = [];
+    this.userService.updateUsersCart(this.user).subscribe();
+
+    this.totalCost = 0;
+  }
+
+  minusProduct(product : Product)
+  {
+    if( product.cartCount != 0) product.cartCount!--;
+    this.recalculateTotalCost();
+  }
+  plusProduct(product : Product)
+  {
+    product.cartCount!++;    
+    this.recalculateTotalCost();
+  }
+  deleteProduct(product : Product)
+  {
+    this.user.cart = this.user.cart?.filter( x => x.id != product.id );
+    this.recalculateTotalCost();
+  }
+
+  recalculateTotalCost()
+  {
+    this.totalCost = 0;
+    this.user.cart?.forEach ( x => this.totalCost += (x.price! * x.cartCount! ) ); 
   }
 }

@@ -9,3 +9,10 @@
 {
     margin-bottom: 2rem;
 }
+
+.cart-product-image
+{
+    height: 5rem;
+    aspect-ratio: 3/2;
+    border-radius: 5%;
+}
